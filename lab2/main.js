@@ -6,7 +6,7 @@ var car1 = {
     rokProdukcji: '2013',
     mocSilnika: 420,
     pojemnoscSilnika: 3999,
-    kolor: 'niebeski',
+    kolor: 'niebieski',
     wPrdukcji: false,
     start: function () {
         console.log('wrrrr!');
@@ -96,7 +96,6 @@ function getAllCars() {
 function filterByKM(type, value) {
     var filtered;
     if (type === 'over') {
-
         filtered = cars.filter(function (car) {
             return car.mocSilnika > value
         })
@@ -111,7 +110,6 @@ function filterByKM(type, value) {
     console.log(filtered);
 }
 
-
 function filterByBrand(brand) {
     var filtered = cars.filter(function (car) {
         return car.marka.toLocaleLowerCase() === brand.toLocaleLowerCase();
@@ -119,5 +117,18 @@ function filterByBrand(brand) {
     console.log(filtered);
 }
 
-console.log(cars)
+function filterByIsProduction() {
+    var filtered = cars.filter(function (car) {
+        return car.wPrdukcji;
+    });
+    console.log(filtered);
+}
+
+function filterByColor(color) {
+    var filtered = cars.filter(function (car) {
+        return car.kolor.toLocaleLowerCase() === color.toLocaleLowerCase();
+    });
+    console.log(filtered);
+}
+
 
