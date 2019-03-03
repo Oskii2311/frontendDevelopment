@@ -62,7 +62,7 @@ var cars = [car1, car2, car3];
 addCar(car4)
 
 function addCar(car) {
-    if (findObjById(car.model) === -1) {
+    if (findObjBy('model', car.model) === -1) {
         cars.push(car);
         console.log('added: ' + car.model);
     } else {
@@ -70,20 +70,21 @@ function addCar(car) {
     }
 }
 
-function findObjById(carModel) {
-    return cars.map(function (x) {
-        return x.model;
-    }).indexOf(carModel);
+function findObjBy(type, value) {
+    return cars.map(function (car) {
+        return car[type];
+    }).indexOf(value);
 }
 
+
 function deleteCar(carModel) {
-    var carIndex = findObjById(carModel);
+    var carIndex = findObjBy('model', carModel);
     cars.splice(carIndex, 1);
     console.log('removed: ' + carModel);
 }
 
 function updateCar(carModel, value, key) {
-    var carIndex = findObjById(carModel);
+    var carIndex = findObjBy('model', carModel);
     cars[carIndex][key] = value;
     console.log('updated: ' + carModel);
 }
