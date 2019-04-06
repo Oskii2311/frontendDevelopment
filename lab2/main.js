@@ -130,5 +130,3 @@ function filterByColor(color) {
     });
     console.log(filtered);
 }
-
-
