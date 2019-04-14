@@ -21,24 +21,24 @@ class DB {
         if (this.findCarBy('model', car.model) === -1) {
             this.cars.push(car);
 
-            return console.log(`added: ${car.model}`);
+            return `added: ${car.model}`;
         }
 
-        return console.log('this model already exist in db');
+        return 'this model already exist in db';
     }
 
     deleteCar(carModel) {
         const carIndex = this.findCarBy('model', carModel);
         this.cars.splice(carIndex, 1);
 
-        return console.log(`removed: ${carModel}`);
+        return `removed: ${carModel}`;
     }
 
     updateCar(carModel, value, key) {
         const carIndex = this.findCarBy('model', carModel);
         this.cars[carIndex][key] = value;
 
-        return console.log(`updated: ${carModel}`);
+        return `updated: ${carModel}`;
     }
 
     filterByKM(type, value) {

@@ -28,21 +28,21 @@ var CarsDB = (function() {
     function addCar(car) {
         if (_findObjBy('model', car.model) === -1) {
             cars.push(car);
-            return console.log('added: ' + car.model);
+            return 'added: ' + car.model;
         }
-        return console.log('this model already exist in db');
+        return 'this model already exist in db';
     }
 
     function deleteCar(carModel) {
         var carIndex = _findObjBy('model', carModel);
         cars.splice(carIndex, 1);
-        return console.log('removed: ' + carModel);
+        return 'removed: ' + carModel;
     }
 
     function updateCar(carModel, value, key) {
         var carIndex = _findObjBy('model', carModel);
         cars[carIndex][key] = value;
-        return console.log('updated: ' + carModel);
+        return 'updated: ' + carModel;
     }
 
     function filterByKM(type, value) {
@@ -167,7 +167,7 @@ var classes = (function() {
         '126p',
         'hatchback',
         false,
-        2,
+        3,
         'fiat',
         1972,
         23,

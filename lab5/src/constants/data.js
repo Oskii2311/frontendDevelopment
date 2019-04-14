@@ -28,7 +28,7 @@ const maluch = new Car(
     '126p',
     'hatchback',
     false,
-    2,
+    3,
     'fiat',
     1972,
     23,
