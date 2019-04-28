@@ -17,7 +17,7 @@ const CarDescription = memo(({ car }) => (
 ));
 
 CarDescription.propTypes = {
-    cars: PropTypes.arrayOf(PropTypes.shape(Car)),
+    car: PropTypes.shape(Car).isRequired,
 };
 
 export default CarDescription;

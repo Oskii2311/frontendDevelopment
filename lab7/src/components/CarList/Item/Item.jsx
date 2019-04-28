@@ -8,8 +8,8 @@ const Item = memo(({ name, brand }) => (
 ));
 
 Item.propTypes = {
-    name: PropTypes.string,
-    brand: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
 };
 
 export default Item;

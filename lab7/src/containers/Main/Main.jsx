@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as SC from './styles';
 import CarList from '../../components/CarList/CarList';
 import CarDescription from '../../components/CarDescription/CarDescription';
-import PropTypes from 'prop-types';
 import Car from '../../utilities/models/Car/Car';
 
 class Main extends Component {
     state = {
         car: null,
     };
+
     showDescription = null;
-
-    getRandomCar = () => {
-        const { cars } = this.props;
-        const item = cars[Math.floor(Math.random() * cars.length)];
-
-        return item;
-    };
 
     componentDidMount() {
         this.showDescription = setInterval(() => {
@@ -27,6 +21,13 @@ class Main extends Component {
     componentWillUnmount() {
         clearInterval(this.showDescription);
     }
+
+    getRandomCar = () => {
+        const { cars } = this.props;
+        const item = cars[Math.floor(Math.random() * cars.length)];
+
+        return item;
+    };
 
     render() {
         const { cars } = this.props;
@@ -48,7 +49,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-    cars: PropTypes.arrayOf(PropTypes.shape(Car)),
+    cars: PropTypes.arrayOf(PropTypes.shape(Car)).isRequired,
 };
 
 export default Main;

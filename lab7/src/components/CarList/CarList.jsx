@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import Item from './Item/Item';
 import PropTypes from 'prop-types';
+import Item from './Item/Item';
 import Car from '../../utilities/models/Car/Car';
 
 const CarList = memo(({ cars }) => (
@@ -12,7 +12,7 @@ const CarList = memo(({ cars }) => (
 ));
 
 CarList.propTypes = {
-    cars: PropTypes.arrayOf(PropTypes.shape(Car)),
+    cars: PropTypes.arrayOf(PropTypes.shape(Car)).isRequired,
 };
 
 export default CarList;
