@@ -1,23 +1,21 @@
 import db from "../../db/db";
 import checkData from "../../services/checkData";
 import baseFilter from "../../services/filters";
+
 class CarsController {
   getAllCars(req, res) {
-    res.status(200).send({
+    return res.status(200).send({
       cars: db
     });
   }
 
   createCar(req, res) {
     const error = checkData(req);
-    if (!!error) {
-      return res.status(404).send({
-        success: "false",
-        message: "error"
-      });
-    }
     const { body } = req;
 
+    if (!!error) {
+      return res.status(404).send(error);
+    }
     const car = new Car(
       body.model,
       body.nadwozie,
@@ -65,7 +63,7 @@ class CarsController {
 
   deleteCar(req, res) {
     const id = parseInt(req.params.id, 10);
-    console.log(id);
+
     db.map((car, index) => {
       if (car.id === id) {
         db.splice(index, 1);
@@ -101,10 +99,7 @@ class CarsController {
     }
     const error = checkData(req);
     if (!!error) {
-      return res.status(404).send({
-        success: "false",
-        message: "error"
-      });
+      return res.status(404).send(error);
     }
 
     const updatedCar = new Car(
