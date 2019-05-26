@@ -3,19 +3,19 @@ import Vehicle from "../Vehicle/Vehicle";
 class Car extends Vehicle {
   constructor(
     model,
-    nadwozie,
-    wPrdukcji,
+    body,
+    isStillProduced,
     id,
-    marka,
-    rokProdukcji,
-    mocSilnika,
-    pojemnoscSilnika,
-    kolor
+    brand,
+    yearOfProduction,
+    enginePower,
+    engineCapacity,
+    color
   ) {
-    super(id, marka, rokProdukcji, mocSilnika, pojemnoscSilnika, kolor);
+    super(id, brand, yearOfProduction, enginePower, engineCapacity, color);
     this.model = model;
-    this.nadwozie = nadwozie;
-    this.wPrdukcji = wPrdukcji;
+    this.body = body;
+    this.isStillProduced = isStillProduced;
   }
 
   static signal(direction) {

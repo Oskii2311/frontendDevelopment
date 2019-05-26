@@ -4,40 +4,40 @@ function checkData(req) {
       success: "false",
       message: "title is required"
     };
-  } else if (!req.body.nadwozie) {
+  } else if (!req.body.body) {
     return {
       success: "false",
-      message: "nadwozie is required"
+      message: "body is required"
     };
-  } else if (!req.body.wProdukcji) {
+  } else if (!req.body.isStillProduced) {
     return {
       success: "false",
-      message: "wProdukcji is required"
+      message: "isStillProduced is required"
     };
-  } else if (!req.body.marka) {
+  } else if (!req.body.brand) {
     return {
       success: "false",
-      message: "marka is required"
+      message: "brand is required"
     };
-  } else if (!req.body.rokProdukcji) {
+  } else if (!req.body.yearOfProduction) {
     return {
       success: "false",
-      message: "rokProdukcji is required"
+      message: "yearOfProduction is required"
     };
-  } else if (!req.body.mocSilnika) {
+  } else if (!req.body.enginePower) {
     return {
       success: "false",
-      message: "mocSilnika is required"
+      message: "enginePower is required"
     };
-  } else if (!req.body.pojemnoscSilnika) {
+  } else if (!req.body.engineCapacity) {
     return {
       success: "false",
-      message: "pojemnoscSilnika is required"
+      message: "engineCapacity is required"
     };
-  } else if (!req.body.kolor) {
+  } else if (!req.body.color) {
     return {
       success: "false",
-      message: "kolor is required"
+      message: "color is required"
     };
   }
 }

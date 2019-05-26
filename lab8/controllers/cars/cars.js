@@ -1,7 +1,7 @@
 import db from "../../db/db";
 import checkData from "../../services/checkData";
 import baseFilter from "../../services/filters";
-
+import Car from "../../models/Car/Car";
 class CarsController {
   getAllCars(req, res) {
     return res.status(200).send({
@@ -12,20 +12,19 @@ class CarsController {
   createCar(req, res) {
     const error = checkData(req);
     const { body } = req;
-
     if (!!error) {
       return res.status(404).send(error);
     }
     const car = new Car(
       body.model,
-      body.nadwozie,
-      body.wProdukcji,
+      body.body,
+      body.isStillProduced,
       db.length + 1,
-      body.marka,
-      body.rokProdukcji,
-      body.mocSilnika,
-      body.pojemnoscSilnika,
-      body.kolor
+      body.brand,
+      body.yearOfProduction,
+      body.enginePower,
+      body.engineCapacity,
+      body.color
     );
     db.push(car);
     return res.status(201).send({
@@ -104,14 +103,14 @@ class CarsController {
 
     const updatedCar = new Car(
       req.body.model || carFound.model,
-      req.body.nadwozie || carFound.nadwozie,
-      req.body.wProdukcji || carFound.wProdukcji,
+      req.body.body || carFound.body,
+      req.body.isStillProduced || carFound.isStillProduced,
       carFound.id,
-      req.body.marka || carFound.marka,
-      req.body.rokProdukcji || carFound.rokProdukcji,
-      req.body.mocSilnika || carFound.mocSilnika,
-      req.body.pojemnoscSilnika || carFound.pojemnoscSilnika,
-      req.body.kolor || carFound.kolor
+      req.body.brand || carFound.brand,
+      req.body.yearOfProduction || carFound.yearOfProduction,
+      req.body.enginePower || carFound.enginePower,
+      req.body.engineCapacity || carFound.engineCapacity,
+      req.body.color || carFound.color
     );
 
     db.splice(itemIndex, 1, updatedCar);

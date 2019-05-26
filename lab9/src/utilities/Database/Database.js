@@ -1,0 +1,69 @@
+import filterType from "../constants/filterType/filterType";
+
+class Database {
+  constructor(cars = []) {
+    this.cars = cars;
+  }
+
+  static overFilter(array, value) {
+    return array.filter(car => car.mocSilnika > value);
+  }
+
+  static belowFilter(array, value) {
+    return array.filter(car => car.mocSilnika < value);
+  }
+
+  findCarBy(type, value) {
+    return this.cars.map(car => car[type]).indexOf(value);
+  }
+
+  addCar(car) {
+    if (this.findCarBy("model", car.model) === -1) {
+      this.cars.push(car);
+
+      return `added: ${car.model}`;
+    }
+
+    return "this model already exist in db";
+  }
+
+  deleteCar(carModel) {
+    const carIndex = this.findCarBy("model", carModel);
+    this.cars.splice(carIndex, 1);
+
+    return `removed: ${carModel}`;
+  }
+
+  updateCar(carModel, value, key) {
+    const carIndex = this.findCarBy("model", carModel);
+    this.cars[carIndex][key] = value;
+
+    return `updated: ${carModel}`;
+  }
+
+  filterByKM(type, value) {
+    let filtered;
+    if (type === filterType.over) {
+      filtered = Database.overFilter(this.cars, value);
+    } else if (type === filterType.below) {
+      filtered = Database.belowFilter(this.cars, value);
+    } else {
+      console.log(`Choose type ${filterType.over} or ${filterType.below}`);
+      filtered = null;
+    }
+
+    return filtered;
+  }
+
+  filterByIsProduction() {
+    const filtered = this.cars.filter(car => car.wPrdukcji);
+
+    return filtered;
+  }
+
+  get allCars() {
+    return this.cars;
+  }
+}
+
+export default Database;

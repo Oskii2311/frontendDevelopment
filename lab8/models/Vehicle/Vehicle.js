@@ -1,15 +1,15 @@
 class Vehicle {
-    constructor(id, marka, rokProdukcji, mocSilnika, pojemnoscSilnika, kolor) {
-        this.id = id;
-        this.marka = marka;
-        this.rokProdukcji = rokProdukcji;
-        this.mocSilnika = mocSilnika;
-        this.pojemnoscSilnika = pojemnoscSilnika;
-        this.kolor = kolor;
-    }
+  constructor(id, brand, isStillProduced, enginePower, engineCapacity, color) {
+    this.id = id;
+    this.brand = brand;
+    this.isStillProduced = isStillProduced;
+    this.enginePower = enginePower;
+    this.engineCapacity = engineCapacity;
+    this.color = color;
+  }
 
-    static start() {
-        console.log('wrrrr');
-    }
+  static start() {
+    console.log("wrrrr");
+  }
 }
 export default Vehicle;
