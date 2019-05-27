@@ -12,9 +12,18 @@ class Car extends Vehicle {
     engineCapacity,
     color
   ) {
-    super(id, brand, yearOfProduction, enginePower, engineCapacity, color);
+    super(
+      id,
+      brand,
+      yearOfProduction,
+      enginePower,
+      engineCapacity,
+      color,
+      isStillProduced
+    );
     this.model = model;
     this.body = body;
+    this.yearOfProduction = yearOfProduction;
     this.isStillProduced = isStillProduced;
   }
 

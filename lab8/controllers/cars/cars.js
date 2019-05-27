@@ -4,6 +4,8 @@ import baseFilter from "../../services/filters";
 import Car from "../../models/Car/Car";
 class CarsController {
   getAllCars(req, res) {
+    console.log(db);
+
     return res.status(200).send({
       cars: db
     });
@@ -18,7 +20,7 @@ class CarsController {
     const car = new Car(
       body.model,
       body.body,
-      body.isStillProduced,
+      body.isStillProduced === "true" ? true : false,
       db.length + 1,
       body.brand,
       body.yearOfProduction,
