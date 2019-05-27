@@ -112,7 +112,7 @@ class CarForm extends Component {
                         onChange={this.handleChange}
                         error={errors.isStillProduced}
                     />
-                    <button type="submit">Create Car</button>
+                    <SC.Button type="submit">Create Car</SC.Button>
                 </SC.Form>
             </SC.Container>
         );

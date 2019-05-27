@@ -20,4 +20,8 @@ const RadioContainer = styled.div`
     align-content: center;
 `;
 
-export { Form, RadioContainer, Container };
+const Button = styled.button`
+    cursor: pointer;
+`;
+
+export { Form, RadioContainer, Container, Button };
