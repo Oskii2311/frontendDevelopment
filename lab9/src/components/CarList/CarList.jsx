@@ -10,6 +10,7 @@ const CarList = ({
     onCarHide,
     onCarDelete,
     isCarDescriptionVisible,
+    onEditCar,
 }) => (
     <SC.List>
         {cars.map((car, idx) => (
@@ -20,6 +21,7 @@ const CarList = ({
                 onCarClick={() => onCarClick(car)}
                 onCarHide={onCarHide}
                 onCarDelete={() => onCarDelete(car.id)}
+                onEditCar={() => onEditCar(car.id)}
             />
         ))}
         {isCarDescriptionVisible && (
@@ -33,6 +35,7 @@ CarList.propTypes = {
     onCarClick: PropTypes.func.isRequired,
     onCarHide: PropTypes.func.isRequired,
     onCarDelete: PropTypes.func.isRequired,
+    onEditCar: PropTypes.func.isRequired,
     isCarDescriptionVisible: PropTypes.bool.isRequired,
 };
 

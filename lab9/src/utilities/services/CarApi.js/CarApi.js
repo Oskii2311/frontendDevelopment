@@ -9,6 +9,20 @@ class CarApi {
         return res.data.cars;
     };
 
+    getCar = async id => {
+        const res = await axios.get(`${this.url}/car/${id}`);
+
+        return res.data.car;
+    };
+
+    updateCar = async (car, id) => {
+        const res = await axios.put(`${this.url}/car/${id}`, {
+            ...car,
+        });
+
+        return res;
+    };
+
     createCar = async car => {
         const res = await axios.post(`${this.url}/car`, {
             ...car,
@@ -19,6 +33,12 @@ class CarApi {
     deleteCar = async id => {
         const res = await axios.delete(`${this.url}/car/${id}`);
         return res;
+    };
+
+    filterCars = async brand => {
+        const res = await axios.get(`${this.url}/cars/filter?brand=${brand}`);
+
+        return res.data.filteredCar;
     };
 }
 

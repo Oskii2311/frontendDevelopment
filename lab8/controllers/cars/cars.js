@@ -18,7 +18,7 @@ class CarsController {
     const car = new Car(
       body.model,
       body.body,
-      body.isStillProduced === "true" ? true : false,
+      body.isStillProduced,
       db.length + 1,
       body.brand,
       Number(body.yearOfProduction),

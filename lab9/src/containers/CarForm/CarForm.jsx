@@ -20,6 +20,28 @@ class CarForm extends Component {
         isValid: null,
     };
 
+    async componentDidMount() {
+        const {
+            match: {
+                params: { id },
+            },
+        } = this.props;
+
+        if (id) {
+            const res = await carApi.getCar(id);
+            const editState = { ...this.state };
+            editState.model = res.model;
+            editState.brand = res.brand;
+            editState.body = res.body;
+            editState.yearOfProduction = res.yearOfProduction.toString();
+            editState.enginePower = res.enginePower.toString();
+            editState.color = res.color;
+            editState.isStillProduced = res.isStillProduced;
+            editState.engineCapacity = res.engineCapacity.toString();
+            this.setState(editState);
+        }
+    }
+
     handleChange = e => {
         const {
             target: { name, value },
@@ -31,9 +53,7 @@ class CarForm extends Component {
             errors: { ...this.state.errors, [name]: false },
         });
     };
-
-    handleSubmit = async e => {
-        e.preventDefault();
+    getStateWithValidation = () => {
         const stateWithError = { ...this.state };
         stateWithError.isValid = true;
         Object.entries(stateWithError).forEach(([key, value]) => {
@@ -42,16 +62,32 @@ class CarForm extends Component {
                 stateWithError.isValid = false;
             }
         });
+        return stateWithError;
+    };
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        const {
+            match: {
+                params: { id },
+            },
+        } = this.props;
+        const stateWithError = this.getStateWithValidation();
+
         this.setState(stateWithError);
         if (stateWithError.isValid) {
-            await carApi.createCar(this.state);
+            if (id) {
+                await carApi.updateCar(this.state, id);
+            } else {
+                await carApi.createCar(this.state);
+            }
             return this.props.history.push('/');
         }
     };
 
     render() {
         const { errors } = this.state;
-        return (
+            return (
             <SC.Container>
                 <SC.Form onSubmit={this.handleSubmit}>
                     <h2>Add Car</h2>
@@ -111,6 +147,7 @@ class CarForm extends Component {
                         options={isStillProducedOptions}
                         onChange={this.handleChange}
                         error={errors.isStillProduced}
+                        value={this.state['isStillProduced'] || ''}
                     />
                     <SC.Button type="submit">Create Car</SC.Button>
                 </SC.Form>

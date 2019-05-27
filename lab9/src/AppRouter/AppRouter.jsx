@@ -10,6 +10,7 @@ const AppRouter = () => {
             <div>
                 <Header />
                 <Switch>
+                    <Route exact path="/edit-car/:id" component={CarForm} />
                     <Route exact path="/create-car" component={CarForm} />
                     <Route exact path="/" component={Main} />
                 </Switch>

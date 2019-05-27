@@ -16,8 +16,8 @@ const brandOptions = [
 ];
 
 const isStillProducedOptions = [
-    { value: true, label: 'yes' },
-    { value: false, label: 'no' },
+    { value: 'yes', label: 'yes' },
+    { value: 'no', label: 'no' },
 ];
 
 export { bodyOptions, brandOptions, isStillProducedOptions };

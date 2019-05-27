@@ -11,6 +11,7 @@ const Item = styled.li`
 
 const Button = styled.button`
     height: 50%;
+    margin: 0 4px;
 `;
 
 export { Item, Button };
