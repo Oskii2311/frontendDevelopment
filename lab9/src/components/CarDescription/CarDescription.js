@@ -9,8 +9,7 @@ const CarDescription = ({ car }) => (
         </h3>
         It is a {car.body}. Made in {car.yearOfProduction}. This model has{' '}
         {car.enginePower} km and {car.engineCapacity} cm^3. Offered color:
-        {car.color}. Is it produced :{' '}
-        {car.isStillProduced === true ? 'yes' : 'no'}
+        {car.color}. Is it produced : {car.isStillProduced}
     </SC.Container>
 );
 
