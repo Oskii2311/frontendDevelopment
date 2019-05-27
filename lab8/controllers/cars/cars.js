@@ -21,9 +21,9 @@ class CarsController {
       body.isStillProduced === "true" ? true : false,
       db.length + 1,
       body.brand,
-      body.yearOfProduction,
-      body.enginePower,
-      body.engineCapacity,
+      Number(body.yearOfProduction),
+      Number(body.enginePower),
+      Number(body.engineCapacity),
       body.color
     );
     db.push(car);
@@ -107,9 +107,9 @@ class CarsController {
       req.body.isStillProduced || carFound.isStillProduced,
       carFound.id,
       req.body.brand || carFound.brand,
-      req.body.yearOfProduction || carFound.yearOfProduction,
-      req.body.enginePower || carFound.enginePower,
-      req.body.engineCapacity || carFound.engineCapacity,
+      Number(req.body.yearOfProduction) || carFound.yearOfProduction,
+      Number(req.body.enginePower) || carFound.enginePower,
+      Number(req.body.engineCapacity) || carFound.engineCapacity,
       req.body.color || carFound.color
     );
 
