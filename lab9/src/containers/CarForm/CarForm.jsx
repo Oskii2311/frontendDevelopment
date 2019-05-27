@@ -80,21 +80,21 @@ class CarForm extends Component {
                     <Input
                         onChange={this.handleChange}
                         name="yearOfProduction"
-                        placeholder="yearOfProduction"
+                        placeholder="year of production"
                         error={errors.yearOfProduction}
                         value={this.state['yearOfProduction'] || ''}
                     />
                     <Input
                         onChange={this.handleChange}
                         name="enginePower"
-                        placeholder="enginePower"
+                        placeholder="engine power"
                         error={errors.enginePower}
                         value={this.state['enginePower'] || ''}
                     />
                     <Input
                         onChange={this.handleChange}
                         name="engineCapacity"
-                        placeholder="engineCapacity"
+                        placeholder="engine capacity"
                         error={errors.engineCapacity}
                         value={this.state['engineCapacity'] || ''}
                     />

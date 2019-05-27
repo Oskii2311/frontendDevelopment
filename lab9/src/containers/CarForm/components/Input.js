@@ -6,6 +6,7 @@ const Input = ({ error = false, name, placeholder, onChange, value }) => {
     return (
         <>
             <SC.Input
+                error={!!error}
                 value={value}
                 onChange={onChange}
                 name={name}

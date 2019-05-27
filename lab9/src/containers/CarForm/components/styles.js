@@ -11,11 +11,11 @@ const Input = styled.input`
     border: 0;
     border-bottom: 1px solid #000;
     padding: 4px;
-    margin-bottom: 10px;
+    margin-bottom: ${({ error }) => (error ? 0 : '10px')};
 `;
 
 const Select = styled.select`
-    margin-bottom: 10px;
+    margin-bottom: ${({ error }) => (error ? 0 : '10px')};
 `;
 
 export { RadioContainer, Input, Select };

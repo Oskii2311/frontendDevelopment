@@ -1,5 +1,5 @@
 const bodyOptions = [
-    { value: '', text: '' },
+    { value: '', text: 'choose body' },
     { value: 'coupe', text: 'coupe' },
     { value: 'combi', text: 'combi' },
     { value: 'sedan', text: 'sedan' },
@@ -7,7 +7,7 @@ const bodyOptions = [
 ];
 
 const brandOptions = [
-    { value: '', text: '' },
+    { value: '', text: 'choose brand' },
     { value: 'nissan', text: 'nissan' },
     { value: 'fiat', text: 'fiat' },
     { value: 'bmw', text: 'bmw' },
