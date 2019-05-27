@@ -28,4 +28,13 @@ const DescriptionContainer = styled.div`
     border-bottom: 1px solid #000;
 `;
 
-export { MainLayoutContainer, BaseInfoContainer, DescriptionContainer };
+const SearchLabel = styled.label`
+    font-size: 0.6em;
+`;
+
+export {
+    MainLayoutContainer,
+    BaseInfoContainer,
+    DescriptionContainer,
+    SearchLabel,
+};

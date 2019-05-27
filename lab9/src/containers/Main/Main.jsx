@@ -57,13 +57,17 @@ class Main extends Component {
 
         return (
             <SC.MainLayoutContainer>
-                <label htmlFor="filter">search cars by brand</label>
-                <Select
-                    name="filter"
-                    options={brandOptionsFilter}
-                    onChange={this.onSearchByBrand}
-                    value={search}
-                />
+                <div>
+                    <SC.SearchLabel htmlFor="filter">
+                        search cars by brand
+                    </SC.SearchLabel>
+                    <Select
+                        name="filter"
+                        options={brandOptionsFilter}
+                        onChange={this.onSearchByBrand}
+                        value={search}
+                    />
+                </div>
                 {!loading ? (
                     <SC.BaseInfoContainer>
                         Car List:
