@@ -15,6 +15,11 @@ class CarApi {
         });
         return res;
     };
+
+    deleteCar = async id => {
+        const res = await axios.delete(`${this.url}/car/${id}`);
+        return res;
+    };
 }
 
 const carApi = new CarApi();

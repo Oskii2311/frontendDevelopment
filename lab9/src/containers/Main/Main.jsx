@@ -3,7 +3,6 @@ import * as SC from './styles';
 import CarList from '../../components/CarList/CarList';
 import carApi from '../../utilities/services/CarApi.js/CarApi';
 import CarDescription from '../../components/CarDescription/CarDescription';
-import CarForm from '../CarForm/CarForm';
 
 class Main extends Component {
     state = {
@@ -12,11 +11,15 @@ class Main extends Component {
         car: null,
     };
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.fetchCars();
+    }
+
+    fetchCars = async () => {
         this.setState({ loading: true });
         const res = await carApi.fetchAllCars();
         this.setState({ cars: res, loading: false });
-    }
+    };
 
     handleItemClick = car => {
         this.setState({ car });
@@ -24,6 +27,11 @@ class Main extends Component {
 
     handleItemHide = () => {
         this.setState({ car: null });
+    };
+
+    handleItemDelete = async id => {
+        await carApi.deleteCar(id);
+        this.fetchCars();
     };
 
     render() {
@@ -38,6 +46,8 @@ class Main extends Component {
                                 cars={cars}
                                 onCarClick={this.handleItemClick}
                                 onCarHide={this.handleItemHide}
+                                onCarDelete={this.handleItemDelete}
+                                isCarDescriptionVisible={!!car}
                             />
                         )}
                     </SC.BaseInfoContainer>
@@ -49,7 +59,6 @@ class Main extends Component {
                         <CarDescription car={car} />
                     </SC.DescriptionContainer>
                 )}
-                <CarForm />
             </SC.MainLayoutContainer>
         );
     }

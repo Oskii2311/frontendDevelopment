@@ -1,20 +1,18 @@
-import React, { memo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Car from '../../utilities/models/Car/Car';
-
-const CarDescription = memo(({ car }) => (
-    <>
-        Description: {car.model} {car.marka}
-        <ul>
-            <li> body: {car.nadwozie}</li>
-            <li>year of Production: {car.rokProdukcji} year</li>
-            <li> engine power: {car.mocSilnika} km</li>
-            <li>engine capacity: {car.pojemnoscSilnika} cm^3</li>
-            <li> color: {car.kolor}</li>
-            <li> is it produced ?: {car.wPrdukcji ? 'yes' : 'no'}</li>
-        </ul>
-    </>
-));
+import * as SC from './styles';
+const CarDescription = ({ car }) => (
+    <SC.Container>
+        <h3>
+            Description: {car.model} {car.brand}.
+        </h3>
+        It is a {car.body}. Made in {car.yearOfProduction}. This model has{' '}
+        {car.enginePower} km and {car.engineCapacity} cm^3. Offered color:
+        {car.color}. Is it produced :{' '}
+        {car.isStillProduced === true ? 'yes' : 'no'}
+    </SC.Container>
+);
 
 CarDescription.propTypes = {
     car: PropTypes.shape(Car).isRequired,
