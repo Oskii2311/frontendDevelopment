@@ -4,8 +4,6 @@ import baseFilter from "../../services/filters";
 import Car from "../../models/Car/Car";
 class CarsController {
   getAllCars(req, res) {
-    console.log(db);
-
     return res.status(200).send({
       cars: db
     });
